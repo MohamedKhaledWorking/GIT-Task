@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f7f7f7;
+    }
+    header, footer {
+      background-color: orange;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+    section {
+      padding: 20px;
+      text-align: center;
+    }
+    .login-box {
+      background-color: white;
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 95%;
+      padding: 10px;
+      background-color: orange;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkorange;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Section 1: Header -->
+  <header>
+    <h1>Welcome to Our Website</h1>
+  </header>
+
+  <!-- ✅ Section 2: Login Form -->
+  <section>
+    <div class="login-box">
+      <h2>Login</h2>
+      <form onsubmit="return validateForm()">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <p id="error" style="color:red;"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ✅ Section 3: Footer -->
+  <footer>
+    <p>&copy; 2025 My Website. All rights reserved.</p>
+  </footer>
+
+  <!-- ✅ JavaScript Validation -->
+  <script>
+    function validateForm() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const error = document.getElementById("error");
+
+      if (email === "" || password === "") {
+        error.textContent = "Please fill in all fields.";
+        return false;
+      }
+
+      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      if (!emailPattern.test(email)) {
+        error.textContent = "Invalid email format.";
+        return false;
+      }
+
+      error.textContent = "";
+      alert("Login successful!");
+      return true;
+    }
+  </script>
+
+</body>
+</html>
